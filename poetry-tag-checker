@@ -2,6 +2,8 @@
 
 POETRY_VERSION=$(poetry version -s)
 LAST_TAG=$(git describe --tags --abbrev=0 2> /dev/null | cut -c2-)
+#echo $POETRY_VERSION
+#echo $LAST_TAG
 
 if [[ -z "$LAST_TAG" ]]; then
   echo "No tag yet"
@@ -10,12 +12,14 @@ fi
 
 COMMIT_HEAD=$(git rev-parse HEAD)
 COMMIT_LAST_TAG=$(git rev-list -n 1 "tags/v$LAST_TAG" 2> /dev/null)
+#echo $COMMIT_HEAD
+#echo $COMMIT_LAST_TAG
 
-if [[ $POETRY_VERSION > $LAST_GIT_TAG || $COMMIT_HEAD == $COMMIT_LAST_TAG ]]; then
+if [[ $POETRY_VERSION > $LAST_TAG || $COMMIT_HEAD == $COMMIT_LAST_TAG ]]; then
+  echo "accepted"
   exit 0
 fi
 
-poetry version $LAST_GIT_TAG > /dev/null
+poetry version $LAST_TAG > /dev/null
 poetry version patch
 exit 1
-

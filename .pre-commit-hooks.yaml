@@ -1,6 +1,7 @@
 - id: poetry-tag-checker
-  name: Poetry Git tag checker
-  description: Enforce pyproject.toml version to be synchronized with latest Git tag through Poetry
+  name: Poetry git tag checker
+  description: Enforce pyproject.toml version to be synchronized with latest git tag through Poetry.
   entry: poetry-tag-checker
   language: script
+  files: 'pyproject.toml'
 

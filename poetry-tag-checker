@@ -9,7 +9,7 @@ if [[ -z "$LAST_TAG" ]]; then
 fi
 
 COMMIT_HEAD=$(git rev-parse HEAD)
-COMMIT_LAST_TAG=$(git rev-list -n 1 "tags/$LAST_TAG" 2> /dev/null)
+COMMIT_LAST_TAG=$(git rev-list -n 1 "tags/v$LAST_TAG" 2> /dev/null)
 
 if [[ $POETRY_VERSION > $LAST_GIT_TAG || $COMMIT_HEAD == $COMMIT_LAST_TAG ]]; then
   exit 0

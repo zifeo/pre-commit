@@ -9,10 +9,12 @@ Enforce pyproject.toml version to be greater than the latest git tag through [Po
 ```
 repos:
 - repo: https://github.com/zifeo/pre-commit
-  rev: 0.1.0
+  rev: v0.1.0
   hooks:
   - id: poetry-tag-checker
 ```
+
+Get latest rev with `pre-commit autoupdate --repo https://github.com/zifeo/pre-commit`.
 
 
 

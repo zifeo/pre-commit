@@ -9,6 +9,7 @@ Enforce pyproject.toml version to be synchronized with latest git tag through [P
 ```
 repos:
 - repo: https://github.com/zifeo/pre-commit
+  rev: 0.1.0
   hooks:
   - id: poetry-tag-checker
 ```

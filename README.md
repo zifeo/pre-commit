@@ -4,7 +4,7 @@ Custom pre-commit hooks for [pre-commit.com](https://pre-commit.com/).
 
 ## poetry-tag-checker
 
-Enforce pyproject.toml version to be synchronized with latest git tag through [Poetry](https://python-poetry.org/). 
+Enforce pyproject.toml version to be greater than the latest git tag through [Poetry](https://python-poetry.org/). 
 
 ```
 repos:

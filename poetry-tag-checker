@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
 POETRY_VERSION=$(poetry version -s)
-LAST_GIT_TAG=$(git describe --tags --abbrev=0 2> /dev/null | cut -c2-)
+LAST_TAG=$(git describe --tags --abbrev=0 2> /dev/null | cut -c2-)
 
-if [[ -z "$LAST_GIT_TAG" ]]; then
+if [[ -z "$LAST_TAG" ]]; then
   echo "No tag yet"
   exit 0
 fi
 
-if [[ $POETRY_VERSION > $LAST_GIT_TAG ]]; then
+COMMIT_HEAD=$(git rev-parse HEAD)
+COMMIT_LAST_TAG=$(git rev-list -n 1 "tags/$LAST_TAG" 2> /dev/null)
+
+if [[ $POETRY_VERSION > $LAST_GIT_TAG || $COMMIT_HEAD == $COMMIT_LAST_TAG ]]; then
   exit 0
 fi
 

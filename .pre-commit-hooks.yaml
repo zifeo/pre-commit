@@ -3,5 +3,5 @@
   description: Enforce pyproject.toml version to be greater than the latest git tag through Poetry.
   entry: poetry-tag-checker
   language: script
+  always_run: true
   files: 'pyproject.toml'
-

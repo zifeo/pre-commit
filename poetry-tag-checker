@@ -16,7 +16,7 @@ COMMIT_LAST_TAG=$(git rev-list -n 1 "tags/v$LAST_TAG" 2> /dev/null)
 #echo $COMMIT_LAST_TAG
 
 if [[ $POETRY_VERSION > $LAST_TAG || $COMMIT_HEAD == $COMMIT_LAST_TAG ]]; then
-  echo "accepted"
+  echo "Accepted"
   exit 0
 fi
 
